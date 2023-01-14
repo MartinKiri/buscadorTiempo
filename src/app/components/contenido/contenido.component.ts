@@ -35,6 +35,9 @@ export class ContenidoComponent implements OnInit {
       this.lon = data.coord.lon
       console.log((this.lat));
       
+    },error=>{
+      this.loading=false;
+      this.error()
     });
   }
 
