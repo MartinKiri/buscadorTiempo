@@ -17,6 +17,9 @@ export class ContenidoComponent implements OnInit {
   mostrarError = false;
   lon = '';
   lat = '';
+  maxTemp= 0;
+  minTemp= 0;
+
 
   constructor(private _climaService: ClimaService) {}
 
@@ -28,13 +31,13 @@ export class ContenidoComponent implements OnInit {
       this.loading = false;
       this.query = true;
       this.temperatura = data.main.temp - 273;
+      this.maxTemp = data.main.temp_max - 273;
+      this.minTemp = data.main.temp_min - 273;
       this.humedad = data.main.humidity;
       this.clima = data.weather[0].main;
       this.derscripcion = data.weather[0].description;
       this.lat = data.coord.lat
-      this.lon = data.coord.lon
-      console.log((this.lat));
-      
+      this.lon = data.coord.lon      
     },error=>{
       this.loading=false;
       this.error()

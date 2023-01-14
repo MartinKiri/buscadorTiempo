@@ -1,4 +1,4 @@
-<div *ngIf="mostrarError" class="alert alert-dismissible alert-danger text-center"  >
+<div *ngIf="mostrarError" class="alert alert-dismissible alert-danger text-center">
   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
   <strong>Oh!</strong> Deberias probar con un nombre de ciudad.
 </div>
@@ -10,7 +10,8 @@
     <div class="col-lg-6">
       <input type="text" class="form-control form-control-lg " [(ngModel)]="ciudad"
         placeholder="Ingresa la ciudadque quieras saber su tiempo">
-      <button (click)="obtenerClima()" [disabled]="ciudad == '' " class="btn btn-primary btn-lg btn-block my-3">Obterner Clima</button>
+      <button (click)="obtenerClima()" [disabled]="ciudad == '' " class="btn btn-primary btn-lg btn-block my-3">Obterner
+        Clima</button>
       <div *ngIf="loading" class="text-center mt-3">
         <div class="spinner-border" role="status"></div>
         <div class="spinner-border" role="status"></div>
@@ -19,11 +20,14 @@
       <div *ngIf="query" class="card mt-3">
         <div class="card-body">
           <p><b>Temperatura: </b>{{temperatura| number :''}} ºC</p>
+          <p><b>maxima temperatura: </b>{{maxTemp.toFixed(2)}}</p>
+          <p><b>minima temperatura: </b>{{minTemp.toFixed(2)}}</p>
           <p><b>Humedad: </b>{{humedad}}</p>
           <p><b>Clima: </b>{{clima}}</p>
           <p><b>Detallado: </b>{{derscripcion}}</p>
-            <p><b>Latitud: </b>{{lat}}</p>
-            <p><b>Longitud: </b>{{lon}}</p>
+          <p><b>Latitud: </b>{{lat}}</p>
+          <p><b>Longitud: </b>{{lon}}</p>
+
         </div>
       </div>
     </div>
