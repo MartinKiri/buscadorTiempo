@@ -1,0 +1,28 @@
+<div *ngIf="mostrarError" class="alert alert-dismissible alert-danger text-center"  >
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Oh!</strong> Deberias probar con un nombre de ciudad.
+</div>
+<div class="container text-center">
+  <div class="row mt-4">
+    <div class="col-lg-4">
+      <img src="../../../assets/pngwing.com.png" alt="Tiempo" width="300vw" height="300vh">
+    </div>
+    <div class="col-lg-6">
+      <input type="text" class="form-control form-control-lg " [(ngModel)]="ciudad"
+        placeholder="Ingresa la ciudadque quieras saber su tiempo">
+      <button (click)="obtenerClima()" [disabled]="ciudad == '' " class="btn btn-primary btn-lg btn-block my-3">Obterner Clima</button>
+      <div *ngIf="loading" class="text-center mt-3">
+        <div class="spinner-border" role="status"></div>
+        <div class="spinner-border" role="status"></div>
+        <div class="spinner-border" role="status"></div>
+      </div>
+      <div *ngIf="query" class="card mt-3">
+        <div class="card-body">
+          <p><b>Temperatura: </b>{{temperatura| number :''}} ºC</p>
+          <p><b>Humedad: </b>{{humedad}}</p>
+          <p><b>Clima: </b>{{clima}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
