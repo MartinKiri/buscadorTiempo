@@ -11,9 +11,12 @@ export class ContenidoComponent implements OnInit {
   temperatura = 0;
   humedad = 0;
   clima = '';
+  derscripcion = '';
   query = false;
   loading = false;
   mostrarError = false;
+  lon = '';
+  lat = '';
 
   constructor(private _climaService: ClimaService) {}
 
@@ -27,9 +30,14 @@ export class ContenidoComponent implements OnInit {
       this.temperatura = data.main.temp - 273;
       this.humedad = data.main.humidity;
       this.clima = data.weather[0].main;
+      this.derscripcion = data.weather[0].description;
+      this.lat = data.coord.lat
+      this.lon = data.coord.lon
+      console.log((this.lat));
+      
     });
   }
-  
+
   error() {
     this.mostrarError = true;
     setTimeout(() => {
